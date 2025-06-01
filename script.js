@@ -46,7 +46,7 @@ function drawCalendar(data) {
   const cal = document.getElementById("calendar");
   cal.innerHTML = "";
 
-  ['Ma','Di','Wo','Do','Vr','Za','Zo'].forEach(d => {
+  ['Ma','Di','Wo','Do','Vr','Za','Zo'].forEach(d=>{
     const div = document.createElement("div");
     div.className = "day header";
     div.innerText = d;
@@ -97,8 +97,7 @@ for (let day = 1; day <= daysInMonth; day++) {
   cal.appendChild(div);
 }
 
-document.getElementById("monthLabel").textContent =
-  currentDate.toLocaleDateString('nl-NL', { month: 'long', year: 'numeric' });
+
 
 
 
