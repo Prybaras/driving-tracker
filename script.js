@@ -13,3 +13,8 @@ function getData() {
 function saveData(data) {
   localStorage.setItem("driveData", JSON.stringify(data));
 }
+
+function resetToday() {
+  localStorage.remove(selectedDate);
+}
+
