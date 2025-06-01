@@ -117,3 +117,20 @@ button:hover {
   font-weight: bold;
   color: white;
 }
+
+.day.selected {
+  outline: 3px solid #007bff;
+}
+
+.day .thumb, .day .sad {
+  display: block;
+  font-size: 1.2rem;
+  margin-top: 5px;
+}
+
+.day.header {
+  font-weight: bold;
+  background: none;
+  cursor: default;
+  color: #444;
+}
