@@ -97,6 +97,10 @@ for (let day = 1; day <= daysInMonth; day++) {
   cal.appendChild(div);
 }
 
+document.getElementById("monthLabel").textContent =
+  currentDate.toLocaleDateString('nl-NL', { month: 'long', year: 'numeric' });
+
+
 
 
 
