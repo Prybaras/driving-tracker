@@ -41,3 +41,16 @@ function selectDay(dateKey) {
   selectedDate = dateKey;
   updateUI();
 }
+
+function drawCalendar() {
+  const cal = document.querySelector("#calendar");
+  cal.innerHTML = "";
+
+  const dagen = ["ma", "di", "wo", "do", "vr", "za", "zo"];
+  dagen.forEach(function(d) {
+    const dag = document.createElement("span");
+    dag.innerText = d;
+    cal.append(dag);
+  });
+}
+
