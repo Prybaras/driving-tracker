@@ -9,3 +9,7 @@ function getTodayKey() {
 function getData() {
   return JSON.parse(localStorage.getItem("driveData") || "{}");
 }
+
+function saveData(data) {
+  localStorage.setItem("driveData", JSON.stringify(data));
+}
