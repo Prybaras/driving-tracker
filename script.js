@@ -66,5 +66,37 @@ for (let i = 0; i < offset; i++) {
   cal.appendChild(div);
 }
 
+for (let day = 1; day <= daysInMonth; day++) {
+  const date = new Date(y, m, day);
+  const key = date.toISOString().split("T")[0];
+  const mins = data[key] || 0;
+  const div = document.createElement("div");
+  div.className = "day";
+
+  if (mins >= goal) {
+    div.classList.add("tracked");
+    div.innerText = `${day}\n${mins}m`;
+    const thumb = document.createElement("span");
+    thumb.className = "thumb";
+    thumb.textContent = "👍";
+    div.appendChild(thumb);
+  } else if (mins > 0) {
+    div.classList.add("not-met");
+    div.innerText = `${day}\n${mins}m`;
+    const sad = document.createElement("span");
+    sad.className = "sad";
+    sad.textContent = "☹️";
+    div.appendChild(sad);
+  } else {
+    div.innerText = day;
+  }
+
+  if (key === selectedDate) div.classList.add("selected");
+  div.onclick = () => selectDay(key);
+
+  cal.appendChild(div);
+}
+
+
 
 
