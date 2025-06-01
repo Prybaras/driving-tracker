@@ -21,3 +21,13 @@ function resetToday() {
   updateUI();
 }
 
+function saveMinutes() {
+  const mins = parseInt(document.getElementById("minuteInput").value);
+  if (!isNaN(mins)) {
+    const data = getData();
+    data[selectedDate] = mins;
+    saveData(data);
+    document.getElementById("minuteInput").value = "";
+    updateUI();
+  }
+}
