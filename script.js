@@ -54,4 +54,8 @@ function drawCalendar(data) {
   });
 }
 
+const firstDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+const offset = firstDay.getDay(); 
+
+
 
