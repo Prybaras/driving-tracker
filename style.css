@@ -56,3 +56,21 @@ button:hover {
   position: relative;
   overflow: hidden;
 }
+
+.progress-fill {
+  background: #90ee90;
+  height: 100%;
+  width: 0%;
+  border-radius: 20px 0 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  transition: width 0.4s ease-in-out;
+  position: relative;
+}
+.car {
+  height: 28px;
+  margin-right: -12px;
+  transform: scaleX(1);
+}
+
