@@ -31,3 +31,8 @@ function saveMinutes() {
     updateUI();
   }
 }
+
+function changeMonth(offset) {
+  currentDate.setMonth(currentDate.getMonth() + offset);
+  updateUI();
+}
