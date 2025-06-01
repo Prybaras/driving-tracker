@@ -42,15 +42,16 @@ function selectDay(dateKey) {
   updateUI();
 }
 
-function drawCalendar() {
-  const cal = document.querySelector("#calendar");
+function drawCalendar(data) {
+  const cal = document.getElementById("calendar");
   cal.innerHTML = "";
 
-  const dagen = ["ma", "di", "wo", "do", "vr", "za", "zo"];
-  dagen.forEach(function(d) {
-    const dag = document.createElement("span");
-    dag.innerText = d;
-    cal.append(dag);
+  ['Ma','Di','Wo','Do','Vr','Za','Zo'].forEach(d => {
+    const div = document.createElement("div");
+    div.className = "day header";
+    div.innerText = d;
+    cal.appendChild(div);
   });
 }
+
 
