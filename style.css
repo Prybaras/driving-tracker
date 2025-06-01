@@ -88,3 +88,32 @@ button:hover {
   gap: 5px;
   margin-top: 10px;
 }
+
+
+.day {
+  padding: 8px;
+  background: #ddd;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  min-height: 50px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.day:hover {
+  background-color: #bbb;
+}
+
+.day.tracked {
+  background-color: #90ee90;
+  font-weight: bold;
+  color: black;
+}
+
+.day.not-met {
+  background-color: #ffa500;
+  font-weight: bold;
+  color: white;
+}
