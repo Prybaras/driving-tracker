@@ -4,11 +4,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vroom Vroom Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <main>
-      <h1>🚗 Vroom Vroom Tracker</h1>
-      <p>Doel: 2 uur per dag rijden (120 min)</p>
-    </main>
+    <h1>🚗 Vroom Vroom Tracker</h1>
+    <p>Doel: 2 uur per dag rijden (120 min)</p>
+
+    <input type="number" id="minuteInput" placeholder="Aantal minuten" />
+    <button onclick="saveMinutes()">Toevoegen</button>
+    <button onclick="resetToday()">Reset vandaag</button>
+
+    <div class="progress-bar">
+      <div class="progress-fill">
+        <img
+          src="https://img.icons8.com/ios-filled/50/car--v1.png"
+          class="car"
+          alt="auto"
+        />
+      </div>
+    </div>
+
+    <div class="month-nav">
+      <button onclick="changeMonth(-1)">←</button>
+      <h2 id="monthLabel">Maand</h2>
+      <button onclick="changeMonth(1)">→</button>
+    </div>
+
+    <div id="calendar"></div>
+    <h3>Maand totaal: <span id="monthlyTotal">0</span> minuten</h3>
+
+    <script src="script.js"></script>
   </body>
 </html>
