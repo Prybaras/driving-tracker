@@ -15,6 +15,9 @@ function saveData(data) {
 }
 
 function resetToday() {
-  localStorage.remove(selectedDate);
+  const data = getData();
+  delete data[selectedDate];
+  saveData(data);
+  updateUI();
 }
 
