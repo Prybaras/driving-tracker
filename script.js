@@ -97,6 +97,12 @@ for (let day = 1; day <= daysInMonth; day++) {
     cal.appendChild(div);
   }
 
+  function updateProgressBar(mins) {
+  const fill = document.querySelector(".progress-fill");
+  const percent = Math.min(mins / goal, 1) * 100;
+  fill.style.width = percent + "%";
+}
+
 
 
 
