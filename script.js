@@ -36,3 +36,8 @@ function changeMonth(offset) {
   currentDate.setMonth(currentDate.getMonth() + offset);
   updateUI();
 }
+
+function selectDay(dateKey) {
+  selectedDate = dateKey;
+  updateUI();
+}
