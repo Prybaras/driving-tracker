@@ -54,8 +54,17 @@ function drawCalendar(data) {
   });
 }
 
-const firstDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
-const offset = firstDay.getDay(); 
+const y = currentDate.getFullYear();
+const m = currentDate.getMonth();
+const firstDay = new Date(y, m, 1);
+const offset = (firstDay.getDay() + 6) % 7; // zorgt dat maandag = 0
+const daysInMonth = new Date(y, m + 1, 0).getDate();
+
+for (let i = 0; i < offset; i++) {
+  const div = document.createElement("div");
+  div.className = "day";
+  cal.appendChild(div);
+}
 
 
 
