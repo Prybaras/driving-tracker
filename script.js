@@ -52,27 +52,27 @@ function drawCalendar(data) {
     div.innerText = d;
     cal.appendChild(div);
   });
-}
 
-const y = currentDate.getFullYear();
-const m = currentDate.getMonth();
-const firstDay = new Date(y, m, 1);
-const offset = (firstDay.getDay() + 6) % 7; // zorgt dat maandag = 0
-const daysInMonth = new Date(y, m + 1, 0).getDate();
+  const y = currentDate.getFullYear();
+  const m = currentDate.getMonth();
+  const firstDay = new Date(y,m,1);
+  const offset = (firstDay.getDay() + 6) % 7; // maandag start
+  const daysInMonth = new Date(y,m+1,0).getDate();
 
-for (let i = 0; i < offset; i++) {
-  const div = document.createElement("div");
-  div.className = "day";
-  cal.appendChild(div);
-}
+  document.getElementById("monthLabel").textContent = currentDate.toLocaleDateString('nl-NL',{month:'long',year:'numeric'});
 
-for (let day = 1; day <= daysInMonth; day++) {
-  const date = new Date(y, m, day);
-  const key = date.toISOString().split("T")[0];
-  const mins = data[key] || 0;
-  const div = document.createElement("div");
-  div.className = "day";
+  for(let i=0;i<offset;i++) {
+    const div = document.createElement("div");
+    div.className = "day";
+    cal.appendChild(div);
+  }
 
+  for(let day=1;day<=daysInMonth;day++) {
+    const date = new Date(y,m,day);
+    const key = date.toISOString().split("T")[0];
+    const mins = data[key] || 0;
+    const div = document.createElement("div");
+    div.className = "day";
 
     if(mins>=goal) {
       div.classList.add("tracked");
@@ -96,17 +96,29 @@ for (let day = 1; day <= daysInMonth; day++) {
     div.onclick = () => selectDay(key);
     cal.appendChild(div);
   }
+}
 
-  function updateProgressBar(mins) {
+function updateProgressBar(mins) {
   const fill = document.querySelector(".progress-fill");
-  const percent = Math.min(mins / goal, 1) * 100;
+  const percent = Math.min(mins/goal,1)*100;
   fill.style.width = percent + "%";
 }
 
+function updateMonthlyTotal(data) {
+  const y = currentDate.getFullYear();
+  const m = String(currentDate.getMonth()+1).padStart(2,"0");
+  const prefix = `${y}-${m}`;
+  let total = 0;
+  for(let key in data) if(key.startsWith(prefix)) total += data[key];
+  document.getElementById("monthlyTotal").textContent = total;
+}
 
+function updateUI() {
+  const data = getData();
+  const mins = data[selectedDate] || 0;
+  updateProgressBar(mins);
+  drawCalendar(data);
+  updateMonthlyTotal(data);
+}
 
-
-
-
-
-
+updateUI();
